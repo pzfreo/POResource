@@ -1,11 +1,9 @@
 package freo.me.rest;
 
-import java.util.concurrent.ConcurrentMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,19 +17,18 @@ import redis.clients.jedis.ScanResult;
 
 public class OrderRedis {
 
-	JedisPool pool;
+	public static JedisPool pool =  new JedisPool(new JedisPoolConfig(), "redis");
+	public static String oneuuid = UUID.randomUUID().toString();
 
 	/*
 	 * Instantiate the system with a new random order
 	 */
-	public OrderRedis() {
-
-		pool = new JedisPool(new JedisPoolConfig(), "localhost");
-		String uuid = UUID.randomUUID().toString();
-		OrderEntry entry = new OrderEntry(uuid, new OrderBean("" + "{'poNumber':'PO1'," + "'lineItem':'11111',"
+	public OrderRedis() { 
+		
+		OrderEntry entry = new OrderEntry(oneuuid, new OrderBean("" + "{'poNumber':'PO1'," + "'lineItem':'11111',"
 				+ "'quantity':'1'," + "'date':'24/7/2012'," + "'customerNumber':'1', paymentReference:''}"));
 		entry.setComplete();
-		this.putOrderToRedis(uuid, entry);
+		this.putOrderToRedis(oneuuid, entry);
 	}
 
 	/*
