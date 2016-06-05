@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  java:
+    build: .
+    ports:
+     - "80:8080"
+    links:
+     - "redis:redis"
+    depends_on:
+     - redis
+  redis:
+    image: redis

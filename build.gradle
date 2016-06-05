@@ -1,6 +1,7 @@
-// this section allows us to add third-party plugins 
+// this section allows us to add third-party plugins
 // that we may need in later exercises
 plugins {
+id 'com.github.johnrengelman.shadow' version '1.2.3'
 }
 
 // Apply the java plugin to add support for Java
@@ -8,6 +9,9 @@ apply plugin: 'java'
 // Jetty plugin required for running tests (and for future exercises)
 apply plugin: 'jetty'
 apply plugin: 'eclipse'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'application'
+mainClassName = 'freo.me.rest.Main'
 
 // where to download libraries, plugins etc
 repositories {
@@ -19,14 +23,15 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.glassfish.jersey.core:jersey-client:2.23'
-	   
-    compile 'org.glassfish.jersey.core:jersey-server:2.23'            
+
+    compile 'org.glassfish.jersey.core:jersey-server:2.23'
 	compile 'org.glassfish.jersey.containers:jersey-container-jetty-servlet:2.23'
-	
+
     compile 'org.eclipse.jetty:jetty-server:9.1.1.v20140108'
-	compile 'org.eclipse.jetty:jetty-util:9.1.1.v20140108'	
-	compile 'org.eclipse.jetty:jetty-servlet:9.1.1.v20140108'	
+	compile 'org.eclipse.jetty:jetty-util:9.1.1.v20140108'
+	compile 'org.eclipse.jetty:jetty-servlet:9.1.1.v20140108'
     compile 'org.json:json:20160212'
+    compile 'redis.clients:jedis:2.8.1'
 }
 
 
@@ -45,12 +50,12 @@ test.doFirst {
   // start Jetty in the background
   jettyRun.daemon = true
   tasks.jettyRun.execute()
-  
+
 }
 
 // after tests stop Jetty
 //test.doLast {
-//     tasks.jettyStop.execute()  
+//     tasks.jettyStop.execute()
 //}
 
 

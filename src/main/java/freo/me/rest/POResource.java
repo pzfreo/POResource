@@ -23,12 +23,14 @@ import org.json.JSONException;
 @Path("purchase")
 public class POResource {
 
-	OrderInMemory orderSingleton = null;
+//	OrderInMemory orderSingleton = null;
+//
+//	public POResource() {
+//		orderSingleton = OrderInMemory.getInstance();
+//	}
 
-	public POResource() {
-		orderSingleton = OrderInMemory.getInstance();
-	}
-
+	OrderRedis orderSingleton = new OrderRedis();
+	
 //	// This method will handle GET requests
 //	@GET
 //	// Specify the resulting content type

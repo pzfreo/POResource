@@ -181,7 +181,6 @@ public class Level2Test {
     	
     	// DELETE again
     	response = target.request().delete();
-    	
     	assertEquals(response.getStatus(), Response.Status.GONE.getStatusCode());
     
     	// Test Deleting resource that doesn't exist
