@@ -25,7 +25,7 @@ dependencies {
 	compile 'org.eclipse.jetty:jetty-util:9.1.1.v20140108'	
 	compile 'org.eclipse.jetty:jetty-servlet:9.1.1.v20140108'	
     compile 'org.json:json:20160212'
-//  compile 'redis.clients:jedis:2.8.1'
+    compile 'redis.clients:jedis:2.8.1'
 }
 
 
