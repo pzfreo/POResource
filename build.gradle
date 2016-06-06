@@ -1,6 +1,7 @@
-// this section allows us to add third-party plugins 
+// this section allows us to add third-party plugins
 // that we may need in later exercises
 plugins {
+
 }
 
 // Apply the java plugin to add support for Java
@@ -44,8 +45,10 @@ test.doFirst {
   // start Jetty in the background
   jettyRun.daemon = true
   tasks.jettyRun.execute()
-  
+
 }
+
+
 
 test.finalizedBy {
     tasks.jettyStop.execute()
