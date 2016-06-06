@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="freo.me.rest.Level2Test" tests="4" skipped="0" failures="0" errors="0" timestamp="2016-05-30T14:02:03" hostname="Pauls-MBP-2.home" time="0.479">
+  <properties/>
+  <testcase name="testPOST_Level2" classname="freo.me.rest.Level2Test" time="0.054"/>
+  <testcase name="TestGets_Level2" classname="freo.me.rest.Level2Test" time="0.15"/>
+  <testcase name="TestDelete_Level2" classname="freo.me.rest.Level2Test" time="0.172"/>
+  <testcase name="TestPut_Level2" classname="freo.me.rest.Level2Test" time="0.099"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
