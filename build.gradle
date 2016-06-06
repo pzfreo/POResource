@@ -8,7 +8,6 @@ plugins {
 apply plugin: 'java'
 // Jetty plugin required for running tests (and for future exercises)
 apply plugin: 'jetty'
-apply plugin: 'eclipse'
 
 // where to download libraries, plugins etc
 repositories {
