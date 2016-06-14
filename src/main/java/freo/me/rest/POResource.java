@@ -23,21 +23,16 @@ import org.json.JSONException;
 @Path("purchase")
 public class POResource {
 
-//	OrderInMemory orderSingleton = null;
-//
-//	public POResource() {
-//		orderSingleton = OrderInMemory.getInstance();
-//	}
+	OrderInMemory orderSingleton = null;
 
-	OrderRedis orderSingleton = new OrderRedis();
+	public POResource() {
+		orderSingleton = OrderInMemory.getInstance();
+	}
+
+
+	Comment out the above constructor and uncomment this to use redis
+// 	OrderRedis orderSingleton = new OrderRedis();
 	
-//	// This method will handle GET requests
-//	@GET
-//	// Specify the resulting content type
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String get() {
-//		return "Hello!";
-//	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
