@@ -30,7 +30,7 @@ public class POResource {
 	}
 
 
-	Comment out the above constructor and uncomment this to use redis
+//	Comment out the above constructor and uncomment this to use redis
 // 	OrderRedis orderSingleton = new OrderRedis();
 	
 
