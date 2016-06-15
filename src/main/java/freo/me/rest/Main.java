@@ -1,43 +1,48 @@
-// package freo.me.rest;
+//package freo.me.rest;
 //
-// import java.net.URI;
+//import java.net.URI;
 //
-// import javax.ws.rs.core.UriBuilder;
+//import javax.ws.rs.ApplicationPath;
+//import javax.ws.rs.core.UriBuilder;
 //
-// import org.eclipse.jetty.server.Server;
-// import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
-// import org.glassfish.jersey.server.ResourceConfig;
+//import org.eclipse.jetty.server.Server;
+//import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
+//import org.glassfish.jersey.server.ResourceConfig;
 //
-// public class Main extends ResourceConfig {
+//@ApplicationPath("/")
+//public class Main extends ResourceConfig {
 //
-//   public Main() {
-//     packages("freo.me.rest");
-//   }
 //
-// 	public static void main(String[] args) throws Exception {
-// 		URI baseUri = UriBuilder.fromUri("http://localhost/").port(8080).build();
-// 		// This is fairly self-explanatory.
-// 		// You can define the URL on which the server will listen.
+//	public Main() {
+//		// this is the package to scan for Resources
+//		packages("freo.me.rest");
+//	}
 //
-// 		ResourceConfig config = new Main();
-// 		// This is where we identify that the class POResource is the JAX-RS
-// 		// Resource (aka Service) that we want to expose.
+//	public static void main(String[] args) throws Exception {
+//		URI baseUri = UriBuilder.fromUri("http://localhost/").port(8080)
+//				.build();
+//		// This is fairly self-explanatory.
+//		// You can define the URL on which the server will listen.
 //
-// 		Server server = JettyHttpContainerFactory.createServer(baseUri, config);
-// 		// Here is where we create the Jetty Server object.
+//		ResourceConfig config = new Main();
+//		// This is where we identify that the class POResource is the JAX-RS
+//		// Resource (aka Service) that we want to expose.
 //
-// 		try {
-// 			server.start();
-// 			// This initiates the startup of the server.
+//		Server server = JettyHttpContainerFactory.createServer(baseUri, config);
+//		// Here is where we create the Jetty Server object.
 //
-// 			server.join();
-// 			// Wait until the server finishes initiation
+//		try {
+//			server.start();
+//			// This initiates the startup of the server.
 //
-// 		} finally {
-// 			server.destroy();
-// 			// Obvious!
-// 		}
+//			server.join();
+//			// Wait until the server finishes initiation
 //
-// 	}
+//		} finally {
+//			server.destroy();
+//			// Obvious!
+//		}
 //
-// }
+//	}
+//
+//}
