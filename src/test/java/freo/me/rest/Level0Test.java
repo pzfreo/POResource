@@ -1,24 +1,24 @@
-//package freo.me.rest;
-//import org.json.JSONObject;
-//import org.junit.Test;
-//
-//
-//import static org.junit.Assert.*;
-//
-//import java.util.HashMap;
-//import java.util.Map;
-//
-//
-//import javax.ws.rs.client.ClientBuilder;
-//import javax.ws.rs.client.Entity;
-//import javax.ws.rs.client.WebTarget;
-//import javax.ws.rs.core.MediaType;
-//import javax.ws.rs.core.Response;
-//
-//public class Level0Test {
+// package freo.me.rest;
+// import org.json.JSONObject;
+// import org.junit.Test;
+// 
+// 
+// import static org.junit.Assert.*;
+// 
+// import java.util.HashMap;
+// import java.util.Map;
+// 
+// 
+// import javax.ws.rs.client.ClientBuilder;
+// import javax.ws.rs.client.Entity;
+// import javax.ws.rs.client.WebTarget;
+// import javax.ws.rs.core.MediaType;
+// import javax.ws.rs.core.Response;
+// 
+// public class Level0Test {
 //    private static final String BASEURL = "http://localhost:8080";
-//
-//	@Test public void testPOST_Level0() {
+// 
+// @Test public void testPOST_Level0() {
 //    
 //    
 //    	// TEST 1. 
@@ -44,12 +44,12 @@
 //    	Response response = target.request(MediaType.APPLICATION_JSON)
 //    			.post(Entity.entity(jsonText,MediaType.APPLICATION_JSON));
 //    	
-//    	assertEquals(response.getStatus(),200);
-//    	assertEquals(response.getMediaType(), MediaType.APPLICATION_JSON);
+//    	assertEquals(200,response.getStatus());
+//    	assertEquals(MediaType.APPLICATION_JSON_TYPE, response.getMediaType());
 //    	
 //    	JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
 //    	
-//    	assertEquals(jsonResponse.get("returnCode"),"0");
+//    	assertEquals("0", jsonResponse.get("returnCode"));
 //    	assertTrue(jsonResponse.has("orderId"));
 //    	
 //    	
@@ -61,10 +61,10 @@
 //    			.post(Entity.entity("bad input",MediaType.APPLICATION_JSON));
 //    	
 //    	
-//    	assertEquals(response.getStatus(),200);
+//    	assertEquals(200, response.getStatus());
 //    	jsonResponse = new JSONObject(response.readEntity(String.class));
-//    	assertEquals(jsonResponse.get("returnCode"),"1");
+//    	assertEquals(jsonResponse.get("1", "returnCode"));
 //    	
 //    }
 //    
-//}
+// }

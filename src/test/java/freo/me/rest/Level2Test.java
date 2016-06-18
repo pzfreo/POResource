@@ -49,7 +49,7 @@ public class Level2Test {
     	Response response = target.request(MediaType.APPLICATION_JSON)
     			.post(Entity.entity(jsonText,MediaType.APPLICATION_JSON));
     	
-    	assertEquals(response.getStatus(),Response.Status.CREATED.getStatusCode()); //201
+    	assertEquals(Response.Status.CREATED.getStatusCode(), response.getStatus()); //201
     	assertTrue(response.getHeaders().containsKey("Location"));
     	
     	
@@ -81,17 +81,17 @@ public class Level2Test {
     	String location = response.getHeaderString("Location");
     	target = ClientBuilder.newClient().target(location);
     	response = target.request(MediaType.APPLICATION_JSON).get();
-    	assertEquals(response.getStatus(),Response.Status.OK.getStatusCode()); // 200
-    	assertEquals(response.getMediaType().toString(), MediaType.APPLICATION_JSON);
+    	assertEquals(Response.Status.OK.getStatusCode(), response.getStatus()); // 200
+    	assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
     	JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
     	
     	// if you want a full JSON comparison, you could do that with JSONAssert
-	    assertEquals(jsonResponse.get("poNumber"), "FREO0073");
+	    assertEquals("FREO0073", jsonResponse.get("poNumber"));
 	    	
     	// TEST GET failure
     	target = ClientBuilder.newClient().target("http://localhost:8080/purchase/blah");
     	response = target.request(MediaType.APPLICATION_JSON).get();
-    	assertEquals(response.getStatus(),Response.Status.NOT_FOUND.getStatusCode()); // 404
+    	assertEquals(Response.Status.NOT_FOUND.getStatusCode(), response.getStatus()); // 404
     		
     }
     
@@ -121,8 +121,8 @@ public class Level2Test {
     	// GET existing value and then update with new
     	target = ClientBuilder.newClient().target(location);
     	response = target.request(MediaType.APPLICATION_JSON).get();
-    	assertEquals(response.getStatus(),Response.Status.OK.getStatusCode()); // 200
-    	assertEquals(response.getMediaType().toString(), MediaType.APPLICATION_JSON);
+    	assertEquals(Response.Status.OK.getStatusCode(), response.getStatus()); // 200
+    	assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
     	JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
     	
     	
@@ -138,17 +138,17 @@ public class Level2Test {
     	response = target.request(MediaType.APPLICATION_JSON)
     			.put(Entity.entity(jsonText,MediaType.APPLICATION_JSON));
     	
-    	assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
-    	assertEquals(response.getMediaType().toString(), MediaType.APPLICATION_JSON);
+    	assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+    	assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
     	jsonResponse = new JSONObject(response.readEntity(String.class));
     	
-    	assertEquals(jsonResponse.get("quantity"), Integer.toString(quantity));
-    	assertEquals(jsonResponse.get("poNumber"), poNumber);
+    	assertEquals( Integer.toString(quantity), jsonResponse.get("quantity"));
+    	assertEquals(poNumber, jsonResponse.get("poNumber");
     	
     	// validate sending incomplete or bad JSON
     	response = target.request(MediaType.APPLICATION_JSON)
     			.put(Entity.entity("{blah}",MediaType.APPLICATION_JSON));
-    	assertEquals(response.getStatus(),Response.Status.BAD_REQUEST.getStatusCode());
+    	assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus());
     }
     
     @Test public void TestDelete_Level2() {
@@ -177,18 +177,19 @@ public class Level2Test {
     	
     	// DELETE 
     	response = target.request().delete();
-    	assertEquals(response.getStatus(),Response.Status.OK.getStatusCode()); // 200
+    	assertEquals(Response.Status.OK.getStatusCode(), response.getStatus()); // 200
     	
     	// DELETE again
     	response = target.request().delete();
-    	assertEquals(response.getStatus(), Response.Status.GONE.getStatusCode());
+    	
+    	assertEquals( Response.Status.GONE.getStatusCode(), response.getStatus());
     
     	// Test Deleting resource that doesn't exist
     	target = ClientBuilder.
     			newClient().
     			target("http://localhost:8080/purchase/blah");
     	response = target.request().delete();
-    	assertEquals(response.getStatus(), Response.Status.NOT_FOUND.getStatusCode()); // 404
+    	assertEquals( Response.Status.NOT_FOUND.getStatusCode(), response.getStatus()); // 404
     
     }
     

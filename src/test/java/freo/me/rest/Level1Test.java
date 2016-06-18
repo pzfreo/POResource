@@ -45,15 +45,15 @@ public class Level1Test {
     	Response response = target.request(MediaType.APPLICATION_JSON)
     			.post(Entity.entity(jsonText,MediaType.APPLICATION_JSON));
     	
-    	assertEquals(response.getStatus(),Response.Status.CREATED.getStatusCode()); // 201
+    	assertEquals(Response.Status.CREATED.getStatusCode(), response.getStatus()); // 201
     	
-    	assertEquals(response.getMediaType().toString(), MediaType.APPLICATION_JSON);
+    	assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
     	assertTrue(response.getHeaders().containsKey("Location"));
     	
     	JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
     	
     	// if you want a full JSON comparison, you could do that with JSONAssert
-    	assertEquals(jsonResponse.get("poNumber"), json.get("poNumber"));
+    	assertEquals(json.get("poNumber"), jsonResponse.get("poNumber"));
     	
     
     	// test JSON failure
@@ -62,7 +62,7 @@ public class Level1Test {
     	response = target.request(MediaType.APPLICATION_JSON)
     			.post(Entity.entity("bad input",MediaType.APPLICATION_JSON));
     	
-    	assertEquals(response.getStatus(),Response.Status.BAD_REQUEST.getStatusCode()); // 400
+    	assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus()); // 400
     	
     }
     

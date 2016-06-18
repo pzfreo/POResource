@@ -41,7 +41,7 @@ public class Level3Test {
 		// same target applies
 		response = target.request(MediaType.APPLICATION_JSON).get();
 		// should be 200 OK
-		assertEquals(response.getStatus(), Status.OK.getStatusCode());
+		assertEquals( Status.OK.getStatusCode(), response.getStatus());
 
 		// validate our HATEOAS - try "getting" all the URIs returned as hrefs
 		// and see we get a 200 for each.
@@ -54,7 +54,7 @@ public class Level3Test {
 			String href = order.getString("href");
 			target = ClientBuilder.newClient().target(BASEURL).path("purchase").path(href);
 			response = target.request(MediaType.APPLICATION_JSON).get();
-			assertEquals(response.getStatus(), Status.OK.getStatusCode());
+			assertEquals(Status.OK.getStatusCode(), response.getStatus());
 
 		}
 
