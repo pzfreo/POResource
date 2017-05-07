@@ -143,7 +143,7 @@ public class Level2Test {
     	jsonResponse = new JSONObject(response.readEntity(String.class));
     	
     	assertEquals( Integer.toString(quantity), jsonResponse.get("quantity"));
-    	assertEquals(poNumber, jsonResponse.get("poNumber");
+    	assertEquals(poNumber, jsonResponse.get("poNumber"));
     	
     	// validate sending incomplete or bad JSON
     	response = target.request(MediaType.APPLICATION_JSON)
