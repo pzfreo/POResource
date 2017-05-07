@@ -2,7 +2,7 @@
 // that we may need in later exercises
 plugins {
 
-  id 'com.github.johnrengelman.shadow' version '1.2.3'
+//  id 'com.github.johnrengelman.shadow' version '1.2.3'
 
 }
 
@@ -10,8 +10,8 @@ plugins {
 apply plugin: 'java'
 // Jetty plugin required for running tests (and for future exercises)
 apply plugin: 'jetty'
-apply plugin: 'com.github.johnrengelman.shadow'
-apply plugin: 'application'
+//apply plugin: 'com.github.johnrengelman.shadow'
+//apply plugin: 'application'
 
 mainClassName = 'freo.me.rest.Main'
 
